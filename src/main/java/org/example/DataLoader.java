@@ -1,14 +1,11 @@
 package org.example;
 
-//Utwórzmy poza pakietem model klasę DataLoader której główna publiczna metoda będzie przyjmować argument
-// typu String ze ścieżką do pliku a metoda będzie zwracać List<String> zawierającą poszczególne rzędy
-// wczytane z pliku. Obsłużmy wewnątrz klasy exception związany z nieznalezieniem pliku.
-// Zwracajmy w tym przypadku pustą listę i wydrukujmy do konsoli komunikat o błędzie.
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,7 +22,7 @@ public class DataLoader {
 //            System.out.println("File not found!");
 //        }
 
-        FileReader fileReader = null;
+        FileReader fileReader;
 
         try {
             fileReader = new FileReader(text);
@@ -40,10 +37,24 @@ public class DataLoader {
 
         } catch (FileNotFoundException e) {
             System.err.println("File not found!");
+            return new LinkedList<>();
         } catch (IOException e) {
-            System.out.println("Something is not yes ;)");
+            System.out.println("Error accesing file");
         }
 
+
+        return result;
+    }
+
+    public static List<String> readFile (String text){
+        List<String> result = new LinkedList<>();
+
+        try {
+            return new LinkedList<>( Files.readAllLines(Paths.get(text)));
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("File not found!");
+        }
 
         return result;
     }
