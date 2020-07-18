@@ -1,8 +1,9 @@
 package org.model;
 import lombok.Getter;
 
+@Getter
 public abstract class Location {
-    @Getter
+
 
     private String name;
     private String voivodeship;
