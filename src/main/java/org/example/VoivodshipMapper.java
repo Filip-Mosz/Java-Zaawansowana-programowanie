@@ -1,9 +1,5 @@
 package org.example;
 
-//Utwórzmy klasę VoivodshipMapper która będzie miała jedną publiczną metodę przyjmującą List<String>
-// z załadowanymi danymi i zwracać będzie Map<Integer, String> z numerem województwa jako kluczem
-// i nazwą jako wartością.
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +29,7 @@ public static Map<Integer, String> map(List<String> list){
 
                         result.put(number, name);
                     }
-            );//dzielimy to co przeszło przez filtr
+            );//dzielimy to co przeszło przez filtr i dodajemy do mapy
 
 
     return result;
