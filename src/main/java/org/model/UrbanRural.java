@@ -9,4 +9,9 @@ public class UrbanRural extends Location{
     public String sayGreeting() {
         return "Witamy w Gminie miejsko-wiejskiej " + getName();
     }
+
+    @Override
+    public String toString() {
+        return getName() + " województwo " + getVoivodeship();
+    }
 }

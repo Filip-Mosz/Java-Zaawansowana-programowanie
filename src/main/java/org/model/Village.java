@@ -9,4 +9,9 @@ public class Village extends Location{
     public String sayGreeting() {
         return "Witamy we wsi " + getName();
     }
+
+    @Override
+    public String toString() {
+        return getName() + " województwo " + getVoivodeship();
+    }
 }

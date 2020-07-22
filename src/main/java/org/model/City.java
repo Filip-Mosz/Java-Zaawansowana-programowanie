@@ -9,4 +9,9 @@ public class City extends Location{
     public String sayGreeting() {
         return "Welcome in " + super.getName() + " city!";
     }
+
+    @Override
+    public String toString() {
+        return getName() + " województwo " + getVoivodeship();
+    }
 }

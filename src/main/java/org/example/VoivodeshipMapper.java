@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public class VoivodshipMapper {
+public class VoivodeshipMapper {
 
     static Predicate<String> voivedeshipFilter = new Predicate<String>() {
         @Override

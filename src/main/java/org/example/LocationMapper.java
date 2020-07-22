@@ -17,7 +17,7 @@ public class LocationMapper {
                 .filter(line -> line.contains("gmina"))
                 .map(filteredLine -> {
                     String[] splitLine = filteredLine.split(";");
-                    String type = splitLine[5];
+                    String type = splitLine[5].split(",")[0];
                     String name = splitLine[4];
                     Integer voiNumber = Integer.valueOf(splitLine[0]);
                     String voievodeshipName = voivodeships.get(voiNumber);
