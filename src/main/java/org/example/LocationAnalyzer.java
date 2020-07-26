@@ -3,7 +3,10 @@ package org.example;
 import org.model.Location;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 //Ma zwracać miejscowości z najdłuższą nazwą
 
@@ -23,6 +26,16 @@ public class LocationAnalyzer {
         }
     }
     return locationsWithLongestName;
+    }
+
+    public static Map<String, List<Location>> getLongestNameInVoievodeships (List<Location> locations){
+        Map<String, List<Location>> longestNamesByVoievodeships = new HashMap<>();
+        locations.stream()
+                .collect(Collectors.groupingBy(location -> location.getVoivodeship()))
+                .forEach((key, value) -> {
+                    longestNamesByVoievodeships.put(key,hasLongestName(value))                    ;
+                });
+        return longestNamesByVoievodeships;
     }
 }
 

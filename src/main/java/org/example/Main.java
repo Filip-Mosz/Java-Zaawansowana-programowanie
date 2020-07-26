@@ -32,17 +32,9 @@ public class Main
         System.out.println( "Hallo Welt!" );
 
         List<String> strings = DataLoader.read("TERC.csv");
-       // System.out.println(strings.toString());
 
         List<String> stringsByFiles = DataLoader.readFile("TERC.csv");
-        //System.out.println(stringsByFiles.toString());
 
-        //System.out.println(VoivodeshipMapper.map(stringsByFiles));
-
-//{
-//        System.out.println("Polish Targets App has started");
-//        List<String> loadedRows = DataLoader.loadFile("TERC.csv");
-//        System.out.println(loadedRows);
         Map<Integer, String> voivodeships = VoivodeshipMapper.map(stringsByFiles);
         List<Location> locations = LocationMapper.mapLocations(stringsByFiles, voivodeships);
         Location randomLocation = VacationTargetGenerator.getRandomLocation(locations);
@@ -59,6 +51,7 @@ public class Main
                 .append("Draw location -> 1" + System.lineSeparator())
                 .append("Set preferred destination type -> 2" + System.lineSeparator())
                 .append("Quit -> q");
+
         StringBuilder locationMenu = new StringBuilder().append("What would you like to do?" + System.lineSeparator())
                 .append("See some nice polish Village -> 1")
                 .append(System.lineSeparator())
@@ -75,14 +68,14 @@ public class Main
                 case "1": {
                     System.out.println("To jest pierwsza opcja");
                 randomLocation = VacationTargetGenerator.getRandomLocation(locations);
-                    System.out.println("Twój cel podróży to: " + randomLocation);
+                    System.out.println("Your vacation target is: " + randomLocation);
                     try {
                         Thread.sleep(5000);
                     } catch (InterruptedException e) {
                         System.out.println("Ktoś obudził śpiący wątek; teraz będzie marudził z niewyspania :(");
                     }
                     break;}
-//Zrobione tylko toStringi z metodach lokacji
+
                 case "2":{
                     System.out.println("2 has been chosen");
                     System.out.println(locationMenu);
@@ -106,7 +99,6 @@ public class Main
                         }
 
                     }
-                    //menu 3 argumentowe (default bezargumentowy) + metoda sparametryzowana + wyświetleniena konsolę
                     break;
                 }
             }
