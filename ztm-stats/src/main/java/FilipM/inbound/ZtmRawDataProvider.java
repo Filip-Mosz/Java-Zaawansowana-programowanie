@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.stream.Collectors;
 
 public class ZtmRawDataProvider {
@@ -13,8 +14,10 @@ public class ZtmRawDataProvider {
         URL url = new URL(urlAsString);
 
         try (InputStream in = url.openStream()) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            return reader.lines().collect(Collectors.joining(System.lineSeparator()));
+            byte[] bytes = in.readAllBytes();
+            return new String(bytes, Charset.defaultCharset());
+            //BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            //return reader.lines().collect(Collectors.joining(System.lineSeparator()));
         }
     }
 }

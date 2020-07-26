@@ -48,6 +48,6 @@ public class UIThread extends Thread{
 
         }while (!"q".equals(chosenOption));
 
-        super.run();
+     //   super.run();
     }
 }

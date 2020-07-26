@@ -17,7 +17,7 @@ public class QueryThread extends Thread{
     @Override
     public synchronized void start() {
         System.out.println(getName() + " has started at " + LocalTime.now());
-        super.run();
+        super.start();
 
     }
 

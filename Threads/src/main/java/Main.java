@@ -16,46 +16,19 @@ public class Main {
 
 
         long start = System.currentTimeMillis();
-        threadTwo.start();
+       // threadTwo.start();
         threadOne.start();
-        threadThree.start();
-        threadFour.start();
-
-        try {
-            threadOne.join();
-            //threadTwo.join();
-            //threadThree.join();
-            //threadFour.join();
-        } catch (InterruptedException e) {
-            System.out.println("Interrupted");
-        }
-
-        try {
-            //threadOne.join();
-            threadTwo.join();
-            //threadThree.join();
-            //threadFour.join();
-        } catch (InterruptedException e) {
-            System.out.println("Interrupted");
-        }
-
-        try {
-            //threadOne.join();
-            //threadTwo.join();
-            threadThree.join();
-            //threadFour.join();
-        } catch (InterruptedException e) {
-            System.out.println("Interrupted");
-        }
-
-        try {
-           // threadOne.join();
-           // threadTwo.join();
-           // threadThree.join();
-            threadFour.join();
-        } catch (InterruptedException e) {
-            System.out.println("Interrupted");
-        }
+//        threadThree.start();
+//        threadFour.start();
+//
+//        try {
+//            threadOne.join();
+//            threadTwo.join();
+//            threadThree.join();
+//            threadFour.join();
+//        } catch (InterruptedException e) {
+//            System.out.println("Interrupted");
+//        }
 
         System.out.println("Finished in: " + (System.currentTimeMillis() - start) + " ms");
     }

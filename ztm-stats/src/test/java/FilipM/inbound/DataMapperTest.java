@@ -1,9 +1,13 @@
 package FilipM.inbound;
 
+import FilipM.model.Vehicle;
 import FilipM.model.VehicleDTO;
 import FilipM.model.ZtmData;
 import org.junit.Test;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.Charset;
 import java.util.List;
 
 import static org.junit.Assert.*;
