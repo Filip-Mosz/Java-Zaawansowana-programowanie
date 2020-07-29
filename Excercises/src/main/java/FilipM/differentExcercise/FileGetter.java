@@ -40,6 +40,7 @@ public class FileGetter {
             String line; //utworzenie zmiennej przyjmującej tekst
 
             while ((line = bufferedReader.readLine()) != null) {
+            //while ((line = bufferedReader.readLine()) != null) {
                 result.add(line); //wykliczne przekazanie kolejnych linii do listy z pośrednictwem zmiennej
             }
 
