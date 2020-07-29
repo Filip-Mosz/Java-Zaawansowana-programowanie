@@ -29,19 +29,22 @@ take into consideration that it might be needed in the future to present the ana
 take into consideration that other text metrics might be required in the future.
 */
 
-import java.io.IOException;
+import java.util.Scanner;
 
 public class DifferentExcercise {
     public static void main(String[] args) {
-        FileGetter fileReader = new FileGetter("textSupply");
-
-        System.out.println(fileReader);
 
 
-        try {
-            FileGetter.testFile();
-        } catch (IOException e) {
-            e.printStackTrace();
+        //this should work in loop
+        System.out.println("Type file name");
+        String name = new Scanner(System.in).nextLine();
+
+        if (FileGetter.nameValidator(name)){
+            FileGetter.read(name);
+            //this line above will change in time
+        } else {
+            System.err.println("Invalid file name! Please try again");
+            //break;
         }
     }
 }
