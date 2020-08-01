@@ -21,6 +21,7 @@ class StatsGeneratorTest {
 
         if (generated != null) {
             assertEquals(3, generated.getSentenceCounter());
+            //green
         }
         assertEquals(8, generated.getWordsCounter());
     }

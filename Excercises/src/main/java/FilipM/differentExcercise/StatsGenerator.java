@@ -21,7 +21,7 @@ public class StatsGenerator {
     static int wordsCounter;
     static int sentenceCounter;
 
-    public static StatsTuple generate (Path fileName) throws IOException {
+    public static StatsTuple generate(Path fileName) throws IOException {
         FileReader fileReader = null;
         try {
             fileReader = new FileReader(String.valueOf(fileName));
@@ -37,24 +37,38 @@ public class StatsGenerator {
             e.printStackTrace();
         }
 
+        //loop works
         do {
             try {
-                if ((character = (char) reader.read()) != null){
-                    if (character.equals(' ')){
+                if ((character = (char) reader.read()) != null) {
+                    if (character.equals(' ')) {
                         wordsCounter++;
+                        //todo: nie traktuje końca pliku jako końca słowa
+                    }
+                    if (character.equals('\n')) {
+                        wordsCounter++;
+                        //break line (probably) done
+                    }
+                    if (character.equals('\r')) {
+                        wordsCounter++;
+                        //end of file (probably) done
                     }
 
+
                     String stringOfCharacter = String.valueOf(character);
-                    if (stringOfCharacter.matches("[.!?]")){
+                    if (stringOfCharacter.matches("[.!?]")) {
                         sentenceCounter++;
+
                     }
                 }
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-        }while (character != 0);
+            if (character == '\uFFFF') {
+                break;
+            }
+        } while (character != '\uFFFF');
         result.setSentenceCounter(sentenceCounter);
         result.setWordsCounter(wordsCounter);
         return result;
