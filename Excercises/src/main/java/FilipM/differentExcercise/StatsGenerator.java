@@ -1,12 +1,5 @@
 package FilipM.differentExcercise;
 
-//the output should contain the following metrics of the input text:
-//        number of words
-//        number of sentences (sentence ends with . ? or ! characters, assume that each sentence in the text
-//        ends with one of these characters).
-//        average amount of words in a sentence (formatted with 2 decimal places).
-
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -20,8 +13,9 @@ public class StatsGenerator {
 
     static int wordsCounter;
     static int sentenceCounter;
+    static double averageWordCounter;
 
-    public static StatsTuple generate(Path fileName) throws IOException {
+    public static StatsTriple generate(Path fileName) throws IOException {
         FileReader fileReader = null;
         try {
             fileReader = new FileReader(String.valueOf(fileName));
@@ -30,7 +24,7 @@ public class StatsGenerator {
         }
         BufferedReader reader = new BufferedReader(fileReader);
 
-        StatsTuple result = new StatsTuple();
+        StatsTriple result = new StatsTriple();
         try {
             fileReader = new FileReader(String.valueOf(fileName));
         } catch (FileNotFoundException e) {
@@ -43,7 +37,6 @@ public class StatsGenerator {
                 if ((character = (char) reader.read()) != null) {
                     if (character.equals(' ')) {
                         wordsCounter++;
-                        //todo: nie traktuje końca pliku jako końca słowa
                     }
                     if (character.equals('\n')) {
                         wordsCounter++;
@@ -69,8 +62,11 @@ public class StatsGenerator {
                 break;
             }
         } while (character != '\uFFFF');
+        averageWordCounter = wordsCounter / sentenceCounter;
+
         result.setSentenceCounter(sentenceCounter);
         result.setWordsCounter(wordsCounter);
+        result.setAverageWordsForSentence(averageWordCounter);
         return result;
 
     }

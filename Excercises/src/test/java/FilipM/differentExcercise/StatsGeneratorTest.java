@@ -12,7 +12,7 @@ class StatsGeneratorTest {
     @Test
     void generate() {
         //given
-        StatsTuple generated = null;
+        StatsTriple generated = null;
         try {
             generated = StatsGenerator.generate(Paths.get("StatsTestFile.txt"));
         } catch (IOException e) {
@@ -24,5 +24,7 @@ class StatsGeneratorTest {
             //green
         }
         assertEquals(8, generated.getWordsCounter());
+
+        assertEquals(2.666666666666667, generated.getAverageWordsForSentence());
     }
 }

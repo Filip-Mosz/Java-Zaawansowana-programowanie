@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Java-Zaawansowana-programowanie" />
         <module name="Vacation-destinations" />
+        <module name="JavaZaawansowana" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11" />

@@ -1,8 +1,9 @@
 package FilipM.differentExcercise;
 
-public class StatsTuple {
+public class StatsTriple {
     private int wordsCounter;
     private int sentenceCounter;
+    private double averageWordsForSentence;
 
     public int getWordsCounter() {
         return wordsCounter;
@@ -18,5 +19,13 @@ public class StatsTuple {
 
     public void setSentenceCounter(int sentenceCounter) {
         this.sentenceCounter = sentenceCounter;
+    }
+
+    public double getAverageWordsForSentence() {
+        return averageWordsForSentence;
+    }
+
+    public void setAverageWordsForSentence(double averageWordsForSentence) {
+        this.averageWordsForSentence = averageWordsForSentence;
     }
 }
